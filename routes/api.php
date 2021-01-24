@@ -14,6 +14,10 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+Route::get('users/all', 'App\Http\Controllers\UserController@index');
+Route::get('users/verify&email={email}', 'App\Http\Controllers\UserController@findByEmail');
+Route::post('users/create', 'App\Http\Controllers\UserController@store');
+
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
